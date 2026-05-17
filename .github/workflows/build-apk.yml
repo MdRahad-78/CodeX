@@ -8,22 +8,17 @@ on:
 jobs:
   build:
     name: Build APK
-    runs-on: ubuntu-latest
-    env:
-      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install
 
       - name: Setup Java JDK 17
         uses: actions/setup-java@v4
@@ -34,6 +29,9 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Accept Android licenses
         run: |
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
@@ -42,11 +40,17 @@ jobs:
       - name: Add Cordova Android platform
         run: ./node_modules/.bin/cordova platform add android
 
-      - name: Build APK
-        run: ./node_modules/.bin/cordova build android --debug
+      - name: Build APK (verbose)
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "JAVA_HOME=$JAVA_HOME"
+          java -version
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --list | head -20
+          ./node_modules/.bin/cordova build android --verbose 2>&1 | tail -100
 
       - name: Find APK
-        run: find platforms/android -name "*.apk" -type f
+        if: always()
+        run: find platforms/android -name "*.apk" -type f 2>/dev/null || echo "No APK found"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
