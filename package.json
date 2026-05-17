@@ -1,0 +1,28 @@
+{
+  "name": "com.codex.editor",
+  "version": "1.0.0",
+  "displayName": "CodeX",
+  "description": "CodeX - Mobile Code Editor with Fluent UI",
+  "main": "index.js",
+  "scripts": {
+    "build": "cordova build android",
+    "run": "cordova run android",
+    "serve": "cordova serve android"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": [
+      "cordova-plugin-file",
+      "cordova-plugin-file-opener2"
+    ]
+  },
+  "devDependencies": {
+    "0": "^0.0.0",
+    "cordova": "^13.0.0",
+    "cordova-android": "^12.0.1",
+    "cordova-plugin-file": "^8.0.0",
+    "cordova-plugin-file-opener2": "^4.0.0"
+  }
+}

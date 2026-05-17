@@ -1,0 +1,13 @@
+node_modules/
+android/build/
+android/app/build/
+android/.gradle/
+android/.idea/
+*.keystore
+*.log
+.DS_Store
+*.iml
+build/
+*.apk
+*.aab
+.husky/

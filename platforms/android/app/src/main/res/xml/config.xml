@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.codex.editor" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="FileOpener2">
+        <param name="android-package" value="io.github.pwlin.cordova.plugins.fileopener2.FileOpener2" />
+    </feature>
+    <name>CodeX</name>
+    <description>Mobile Code Editor with Fluent UI</description>
+    <author email="dev@codex.app" href="https://codex.app">
+        CodeX Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <application android:hardwareAccelerated="true" android:largeHeap="true" android:usesCleartextTraffic="true" />
+    </edit-config>
+    <resource-file src="res/screen.png" target="app/src/main/res/screen.png" />
+    <preference name="Orientation" value="default" />
+    <preference name="Fullscreen" value="false" />
+    <preference name="BackgroundColor" value="0xff202020" />
+    <preference name="ShowTitle" value="false" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen.png" />
+    <preference name="AndroidWindowSplashScreenBackground" value="#202020" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <preference name="AndroidInsecureFileModeEnabled" value="true" />
+    <preference name="android-minSdkVersion" value="24" />
+    <preference name="android-targetSdkVersion" value="34" />
+</widget>
