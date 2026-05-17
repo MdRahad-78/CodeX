@@ -3,8 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="color-scheme" content="dark">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://esm.sh; script-src 'self' 'unsafe-inline' https://esm.sh; style-src 'self' 'unsafe-inline'; connect-src *;">
     <title>CodeX</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -41,7 +39,15 @@
             <div class="helper-row" id="helper-keys"></div>
         </div>
     </div>
-    <script src="cordova.js"></script>
-    <script type="module" src="js/app.js"></script>
+    <script src="https://esm.sh/@codemirror/view@6.34.1?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/state@6.4.1?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/commands@6.7.0?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/language@6.10.3?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/autocomplete@6.18.0?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/lang-javascript@6.2.2?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/lang-python@6.1.6?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/lang-cpp@6.0.2?bundle" defer></script>
+    <script src="https://esm.sh/@codemirror/lang-html@6.4.9?bundle" defer></script>
+    <script src="js/app.js" defer></script>
 </body>
 </html>
